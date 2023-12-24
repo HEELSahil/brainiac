@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: 'Next-gen Neural Nexus',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <ClerkProvider>
       <html lang="en">
