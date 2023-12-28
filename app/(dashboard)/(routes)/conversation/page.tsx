@@ -11,10 +11,16 @@ import { useRouter } from "next/navigation";
 import { Heading } from "@/components/Heading";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Loader } from "@/components/Loader";
+import { UserAvatar } from "@/components/UserAvatar";
+import { BotAvatar } from "@/components/BotAvatar";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
+import { cn } from "@/lib/utils";
+
 
 import { formSchema } from "./constants";
+
 
 export default function ConversationPage() {
   const router = useRouter();
@@ -82,9 +88,21 @@ export default function ConversationPage() {
                 </Form>
             </div>
             <div className="space-y-4 mt-4">
+              {isLoading && (
+                <div className="p-8 rounded-lg w-full flex items-center justify-center bg-muted">
+                  <Loader />
+                </div>
+              )}
               <div className="flex flex-col-reverse gap-y-4">
                 {messages.map((message, i) => (
-                  <div key={i}>
+                  <div 
+                    key={i}
+                    className={cn(
+                      "p-8 w-full flex items-start gap-x-8 rounded-lg",
+                      message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
+                    )}
+                  >
+                    {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                     {Array.isArray(message.content) ? message.content.join("\n") : message.content} 
                   </div>
                 ))}
