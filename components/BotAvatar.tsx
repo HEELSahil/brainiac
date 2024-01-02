@@ -2,8 +2,8 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 export const BotAvatar = () => {
   return (
-    <Avatar className="h-8 w-8">
-      <AvatarImage className="p-1" src="/assets/images/logo.png" />
+    <Avatar className="h-12 w-12">
+      <AvatarImage className="p-1" src="/assets/images/secondary-logo.png" />
     </Avatar>
   );
 };
