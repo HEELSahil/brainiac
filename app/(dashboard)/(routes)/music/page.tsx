@@ -49,7 +49,7 @@ export default function MusicPage() {
     <div>
       <Heading
         title="Music Generation"
-        description="Elevated Conversations, Powered by Brainiac"
+        description="Let Brainiac turn your prompts into music"
         icon={Music}
         iconColor="text-emerald-600"
         bgColor="bg-emerald-600/10"
@@ -68,7 +68,7 @@ export default function MusicPage() {
                         <Input
                           className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                           disabled={isLoading} 
-                          placeholder="Start your first message with Brainiac..." 
+                          placeholder="funky synth solo..." 
                           {...field}
                         />
                       </FormControl>
