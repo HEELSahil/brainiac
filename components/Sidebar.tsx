@@ -6,6 +6,7 @@ import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, Video
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
+import { FreeCounter } from "@/components/FreeCounter";
 
 const routes = [
   {
@@ -51,7 +52,13 @@ const routes = [
   },
 ];
 
-export default function Sidebar() {
+interface SidebarProps {
+  apiLimitCount: number;
+}
+
+export default function Sidebar({
+  apiLimitCount = 0 
+}: SidebarProps) {
     const pathname = usePathname();
     return (
         <div className="space-y-4 py-4 flex flex-col h-full bg-black text-white">
@@ -79,6 +86,7 @@ export default function Sidebar() {
                     ))}
                 </div>
             </div>
+            <FreeCounter apiLimitCount={apiLimitCount} />
         </div>
     );
 };
